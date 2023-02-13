@@ -32,12 +32,12 @@
     <desired_REPOSITORY_name>:<desired_TAG> <space> <folder_where_dockerfile_exists>
 
 #### Run the docker image:
-    $ docker run --rm -p 8888:8888 -e JUPYTER_LAB_ENABLE=yes -v "$PWD":/path/to/workplace docker-jupyterlab
+    $ docker run --rm -p 8888:8888 -e JUPYTER_LAB_ENABLE=yes -v "$PWD":/home/jovyan/work docker-jupyterlab
     =============
     Args Meaning:
     --rm = remove the container on exit (ctrl-c)
     -p 8888:8888 = jupyterlab runs on port 8888 inside the container, we exposed this externally on port 8888.
     -e JUPYTER_LAB_ENABLE=yes = setting environment variable
-    -v "$PWD":/path/to/workplace = On container removal copy everything created/stored on jupyterlab (which exists on /path/to/workplace inside the container) to the present_working_directory (directory from where you ran - docker run) of your local system.
+    -v "$PWD":/home/jovyan/work = On container removal copy everything created/stored on jupyterlab (which exists on /home/jovyan/work inside the container) to the present_working_directory (directory from where you ran - docker run) of your local system.
 
 
